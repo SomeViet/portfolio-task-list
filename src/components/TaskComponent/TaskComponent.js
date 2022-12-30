@@ -29,6 +29,8 @@ export default function TaskComponent({ task, index, removeTask, taskTheme }) {
                         ? "task-component"
                         : taskTheme === "black"
                         ? "task-component--black"
+                        : taskTheme === "blue"
+                        ? "task-component--blue"
                         : null
                 }
             >
@@ -38,6 +40,8 @@ export default function TaskComponent({ task, index, removeTask, taskTheme }) {
                         taskTheme === "white"
                             ? deleteIcon
                             : taskTheme === "black"
+                            ? deleteIconWhite
+                            : taskTheme === "blue"
                             ? deleteIconWhite
                             : null
                     }

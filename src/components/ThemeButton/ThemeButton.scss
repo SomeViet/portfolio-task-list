@@ -1,0 +1,33 @@
+.theme-button {
+    padding: 8px 12px 12px 12px;
+    position: fixed;
+    bottom: 0;
+    border: 1px solid #fafafa;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    &--black {
+        @extend .theme-button;
+        background-color: #222222;
+        border: 1px solid black;
+    }
+
+    &--blue {
+        @extend .theme-button;
+        background-color: #092876;
+        border: 1px solid white;
+    }
+
+    &__container {
+        display: flex;
+        gap: 24px;
+    }
+
+    &__button {
+        aspect-ratio: 2/1;
+        width: 64px;
+    }
+}

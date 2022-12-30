@@ -14,6 +14,12 @@
         color: white;
     }
 
+    &--blue {
+        @extend .app;
+        background-color: #012169;
+        color: white;
+    }
+
     &__header {
         align-self: center;
     }

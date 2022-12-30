@@ -1,11 +1,11 @@
 import React from "react";
 import "./stylings/App.scss";
-import { TaskComponent } from "./components";
+import { TaskComponent, ThemeButton } from "./components";
 
 class App extends React.Component {
     state = {
         todoTasks: [],
-        theme: "black",
+        theme: "white",
     };
 
     componentDidMount() {
@@ -66,6 +66,15 @@ class App extends React.Component {
         localStorage.setItem("theme", currentTheme);
     };
 
+    blueThemeToggle = (_event) => {
+        const currentTheme =
+            this.state.theme !== "blue" ? "blue" : this.state.theme;
+        this.setState({
+            theme: currentTheme,
+        });
+        localStorage.setItem("theme", currentTheme);
+    };
+
     render() {
         const appTheme = this.state.theme;
 
@@ -76,11 +85,12 @@ class App extends React.Component {
                         ? "app"
                         : appTheme === "black"
                         ? "app--black"
+                        : appTheme === "blue"
+                        ? "app--blue"
                         : null
                 }
             >
                 <h1 className="app__header">Basic To Do List</h1>
-
                 <form
                     onSubmit={this.addTask}
                     id="addTaskForm"
@@ -107,6 +117,12 @@ class App extends React.Component {
                         />
                     ))}
                 </ul>
+                <ThemeButton
+                    buttonTheme={appTheme}
+                    whiteTheme={this.whiteThemeToggle}
+                    blackTheme={this.blackThemeToggle}
+                    blueTheme={this.blueThemeToggle}
+                />
             </main>
         );
     }
