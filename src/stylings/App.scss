@@ -4,7 +4,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 24px;
+    padding: 24px;
+    height: 100vh;
+    overflow: auto;
+
+    &--black {
+        @extend .app;
+        background-color: #111111;
+        color: white;
+    }
 
     &__header {
         align-self: center;
@@ -13,16 +21,17 @@
     &__form {
         display: flex;
         justify-content: center;
-        padding: 24px;
+        margin: 24px 0;
+        width: 75vw;
     }
 
     &__input {
-        height: 24px;
-        width: 512px;
+        min-height: 24px;
+        flex-grow: 1;
     }
 
     &__add-button {
-        height: 24px;
+        min-height: 24px;
         margin-left: 24px;
     }
 

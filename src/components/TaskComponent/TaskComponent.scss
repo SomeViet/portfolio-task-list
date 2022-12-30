@@ -1,5 +1,5 @@
 .task-component {
-    width: 80vw;
+    width: 75vw;
     border: 1px solid #000000;
     justify-content: space-between;
     margin: 12px;
@@ -9,8 +9,15 @@
     position: relative;
     justify-content: center;
 
+    &--black {
+        @extend .task-component;
+        border: 1px solid white;
+        background-color: #222222;
+    }
+
     &__task {
-        width: 50vw;
+        width: 55vw;
+        text-align: center;
     }
 
     &__delete {
@@ -20,5 +27,9 @@
         top: 0;
         bottom: 0;
         margin: auto 0;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

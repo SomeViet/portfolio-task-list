@@ -5,7 +5,7 @@ import { TaskComponent } from "./components";
 class App extends React.Component {
     state = {
         todoTasks: [],
-        theme: "light",
+        theme: "black",
     };
 
     componentDidMount() {
@@ -41,13 +41,45 @@ class App extends React.Component {
         addForm.reset();
     };
 
-    removeTask = () => {};
+    removeTask = (event, index) => {
+        event.preventDefault();
+        this.state.todoTasks.splice(index, 1);
+        this.setState(this.state.todoTasks);
+        localStorage.setItem("todoTasks", JSON.stringify(this.state.todoTasks));
+    };
+
+    whiteThemeToggle = (_event) => {
+        const currentTheme =
+            this.state.theme !== "white" ? "white" : this.state.theme;
+        this.setState({
+            theme: currentTheme,
+        });
+        localStorage.setItem("theme", currentTheme);
+    };
+
+    blackThemeToggle = (_event) => {
+        const currentTheme =
+            this.state.theme !== "black" ? "black" : this.state.theme;
+        this.setState({
+            theme: currentTheme,
+        });
+        localStorage.setItem("theme", currentTheme);
+    };
 
     render() {
+        const appTheme = this.state.theme;
+
         return (
-            <main className="app">
+            <main
+                className={
+                    appTheme === "white"
+                        ? "app"
+                        : appTheme === "black"
+                        ? "app--black"
+                        : null
+                }
+            >
                 <h1 className="app__header">Basic To Do List</h1>
-                {/* <div>Theme</div> */}
 
                 <form
                     onSubmit={this.addTask}
@@ -66,7 +98,13 @@ class App extends React.Component {
                 </form>
                 <ul className="app__list">
                     {this.state.todoTasks.map((task, index) => (
-                        <TaskComponent key={index} task={task} />
+                        <TaskComponent
+                            key={index}
+                            task={task}
+                            index={index}
+                            removeTask={this.removeTask}
+                            taskTheme={appTheme}
+                        />
                     ))}
                 </ul>
             </main>
