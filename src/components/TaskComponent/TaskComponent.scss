@@ -1,24 +1,26 @@
+@use "../../styles/partials/variables" as *;
+
 .task-component {
-    width: 75vw;
-    border: 1px solid #000000;
+    min-width: 75vw;
     justify-content: space-between;
     margin: 12px;
-    background-color: #eeeeee;
     padding: 8px;
     display: flex;
     position: relative;
     justify-content: center;
+    border: $theme1-border;
+    background-color: $theme1-background;
 
     &--black {
         @extend .task-component;
-        border: 1px solid white;
-        background-color: #222222;
+        border: $theme2-border;
+        background-color: $theme2-background;
     }
 
     &--blue {
         @extend .task-component;
-        border: 1px solid white;
-        background-color: #0047ab;
+        border: $theme3-border;
+        background-color: $theme3-background;
     }
 
     &__task {

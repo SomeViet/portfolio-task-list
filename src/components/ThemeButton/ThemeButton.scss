@@ -1,24 +1,26 @@
+@use "../../styles/partials/variables" as *;
+
 .theme-button {
     padding: 8px 12px 12px 12px;
     position: fixed;
     bottom: 0;
-    border: 1px solid #fafafa;
-    background-color: #fafafa;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    border: $theme1-button-border;
+    background-color: $theme1-button-background;
 
     &--black {
         @extend .theme-button;
-        background-color: #222222;
-        border: 1px solid black;
+        border: $theme2-button-border;
+        background-color: $theme2-button-background;
     }
 
     &--blue {
         @extend .theme-button;
-        background-color: #092876;
-        border: 1px solid white;
+        border: $theme3-button-border;
+        background-color: $theme3-button-background;
     }
 
     &__container {

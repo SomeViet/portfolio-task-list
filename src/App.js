@@ -1,5 +1,5 @@
 import React from "react";
-import "./stylings/App.scss";
+import "./styles/App.scss";
 import { TaskComponent, ThemeButton } from "./components";
 
 class App extends React.Component {
